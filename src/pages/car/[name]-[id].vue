@@ -1,7 +1,7 @@
 <template>
-    <div v-if="carDetail">
-        <car-detail :car="carDetail" />
-        <car-detail-attributes :attribute="carDetail.attribute" />
+    <div>
+        <car-detail-hero :car="carDetail" />
+        <car-detail-attributes :attribute="carDetail.features" />
         <car-detail-description :description="carDetail.description" />
         <car-detail-contact />
     </div>
@@ -20,6 +20,12 @@ const carDetail = computed(() => {
         return c.id === parseInt(router.params.id)
     })
 })
+
+if (!carDetail.value) {
+    throwError(404, `This car with id of ${router.params.id} does not exist`)
+
+}
+
 definePageMeta({
     layout: "custom-detail"
 })

@@ -10,3 +10,9 @@ export const useUtilities = () => {
         toTitleCase
     }
 }
+export const throwError = (code: number, mes: string) => {
+    throw createError({
+        statusCode: code,
+        message: mes
+    })
+}

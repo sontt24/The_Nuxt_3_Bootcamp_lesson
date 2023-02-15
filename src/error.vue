@@ -9,6 +9,8 @@
 const error = useError()
 
 const handleBackHome = () => {
-    navigateTo("/")
+    clearError({
+        redirect: "/"
+    })
 }
 </script>
